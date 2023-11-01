@@ -13,10 +13,10 @@ class CryptoRepository @Inject constructor(
     private val api: CryptoAPI
 ) {
 
-    suspend fun getCryptoList() : Resource<CryptoList> {
+    suspend fun getCryptoList(): Resource<CryptoList> {
         val response = try {
             api.getCryptoList()
-        }catch (e: Exception){
+        } catch(e: Exception) {
             return Resource.Error("Error.")
         }
         return Resource.Success(response)
